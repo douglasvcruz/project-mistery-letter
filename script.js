@@ -10,7 +10,6 @@ const addButtonGenerator = () => {
     span.innerHTML = values[i];
     cartGenerated.appendChild(span);
   }
-  inputText.value = '';
 }
 
 buttonGenerator.addEventListener('click', addButtonGenerator);
