@@ -55,3 +55,40 @@
 .skewright {
   transform: skew(-10deg);
 }
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+div {
+  width: 100%;
+  margin: 10px;
+}
+
+#carta-contador {
+  margin-top: 20px;
+}
+
+#carta-gerada {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+#carta-texto {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#criar-carta {
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+span {
+  margin: 10px;
+}
