@@ -75,7 +75,7 @@ div {
 #carta-gerada {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  align-items: center;
 }
 
 #carta-texto {
@@ -90,5 +90,5 @@ div {
 }
 
 span {
-  margin: 10px;
+  margin: 20px;
 }

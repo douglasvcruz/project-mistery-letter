@@ -1,33 +1,41 @@
-const buttonGenerator = document.getElementById('criar-carta');
-const cartGenerated = document.getElementById('carta-gerada');
+const createCard = document.getElementById('criar-carta');
+const cardGenerated = document.getElementById('carta-gerada');
 const inputText = document.getElementById('carta-texto');
 const contador = document.getElementById('carta-contador');
-const sty = ['newspaper', 'magazine2', 'magazine1'];
-const wid = ['medium', 'big', 'reallybig'];
-const rot = ['rotateright', 'rotateleft'];
-const inc = ['skewleft', 'skewright'];
+const style = ['newspaper', 'magazine2', 'magazine1'];
+const width = ['medium', 'big', 'reallybig'];
+const rotation = ['rotateright', 'rotateleft'];
+const inclination = ['skewleft', 'skewright'];
 
 const mathRound = (classe) => classe[Math.floor(Math.random() * classe.length)];
 
-const addButtonGenerator = () => {
+const forOfCardGenerator = () => {
   let count = 0;
-  cartGenerated.innerHTML = '';
-  if (inputText.value.length === 0 || inputText.value === ' ') {
-    cartGenerated.innerHTML = 'Por favor, digite o conteúdo da carta.';
-  } else {
-    const values = inputText.value.split(' ');
-    for (let i = 0; i < values.length; i += 1) {
-      const span = document.createElement('span');
-      span.innerHTML = values[i];
-      count += 1;
-      span.className = `${mathRound(sty)} ${mathRound(wid)} ${mathRound(rot)} ${mathRound(inc)}`;
-      span.addEventListener('click', (e) => {
-        e.target
-          .className = `${mathRound(sty)} ${mathRound(wid)} ${mathRound(rot)} ${mathRound(inc)}`;
-      });
-      cartGenerated.appendChild(span);
-    }
-  } contador.innerHTML = count;
+  const values = inputText.value.split(' ');
+  for (let i = 0; i < values.length; i += 1) {
+    count += 1;
+    const span = document.createElement('span');
+    span.innerHTML = values[i];
+    span.className = `${mathRound(style)} ${mathRound(width)} ${mathRound(
+      rotation,
+    )} ${mathRound(inclination)}`;
+    span.addEventListener('click', (e) => {
+      e.target.className = `${mathRound(style)} ${mathRound(
+        width,
+      )} ${mathRound(rotation)} ${mathRound(inclination)}`;
+    });
+    cardGenerated.appendChild(span);
+  }
+  return count;
 };
 
-buttonGenerator.addEventListener('click', addButtonGenerator);
+const createCardGenerator = () => {
+  cardGenerated.innerHTML = '';
+  if (inputText.value.length === 0 || inputText.value === ' ') {
+    cardGenerated.innerHTML = 'Por favor, digite o conteúdo da carta.';
+  } else {
+    contador.innerHTML = forOfCardGenerator();
+  }
+};
+
+createCard.addEventListener('click', createCardGenerator);
